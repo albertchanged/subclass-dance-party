@@ -2,15 +2,24 @@
 <html>
   <head>
     <title>Object Dance Party</title>
+    <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <script src="lib/jquery.js"></script>
     <script src="src/dancer.js"></script>
     <script src="src/blinkyDancer.js"></script>
+    <script src="src/snoopDancer.js"></script>
+    
+
   </head>
   <body>
     <div class="topbar">
-      <span class="title">object dance party</span>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeBlinkyDancer">add a blinky dancer</a>    </div>
-    <script src="src/init.js"></script>
+      <span class="title"><strong>Dance Party</strong></span>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer"><strong>Psy</strong></a>
+      <a href="#" class="addSnoopDancerButton" idata-dancer-maker-function-name="SnoopDancer"><strong>Snoop</strong></a>
+      <a href="#" class="addPsyDancerButton" data-dancer-maker-function-name="BlinkyDancer"><strong>Blinky Dancers</strong></a>
+    </div>
+    <script src="src/init.js">
+      // $('body').css('background', 'url(laser.jpg) no-repeat');
+    </script>
   </body>
 </html>
