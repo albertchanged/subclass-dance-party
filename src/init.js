@@ -96,4 +96,10 @@ $(document).ready(function() {
     $('body').append(dancer.$node);
     window.dancers.push(dancer);
   });
+
+  $('.lineUp').on('click', function(event) {
+    window.dancers.forEach(function() {
+      $('body').height() * 0.5;
+    });
+  });
 });
