@@ -17,7 +17,7 @@ body, a:link, a:visited, a:active{
   color: white;
   text-decoration: none;
 }
-.title, .addDancerButton, .addSnoopDancerButton, .addPsyDancerButton {
+.title, .addDancerButton, .addSnoopDancerButton, .addPsyDancerButton ,.addDrakeDancerButton {
   padding:5px 12px;
   float:right;
 }
@@ -38,5 +38,5 @@ body, a:link, a:visited, a:active{
 }
 
 .snoop {
-width: 50%;
+  width: 50%;
 }
