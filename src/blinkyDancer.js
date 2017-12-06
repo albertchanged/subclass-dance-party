@@ -1,6 +1,5 @@
 var BlinkyDancer = function(top, left, timeBetweenSteps) {
   Dancer.call(this, top, left, timeBetweenSteps);
-  debugger;
   // Dancer.call(this, $node);
 };
 

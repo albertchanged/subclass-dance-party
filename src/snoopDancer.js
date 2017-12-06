@@ -1,6 +1,5 @@
 var SnoopDancer = function(top, left, timeBetweenSteps) {
   Dancer.call(this, top, left, timeBetweenSteps);
-  debugger;
   // Dancer.call(this, $node);
 };
 
@@ -21,11 +20,12 @@ SnoopDancer.prototype.step = function() {
 };
 
  // this one sets the position to some random default point within the body
-// Dancer.prototype.setPosition = function(top, left) {
-//   // Use css top and left properties to position our <span> tag
-//   // where it belongs on the page. See http://api.jquery.com/css/
-//   var styleSettings = {
-//     top: 400
-//   };
-//   this.$node.css(styleSettings);
-// };
+SnoopDancer.prototype.setPosition = function(top, left) {
+  // Use css top and left properties to position our <span> tag
+  // where it belongs on the page. See http://api.jquery.com/css/
+  var styleSettings = {
+    top: 2000, 
+    left: 50
+  };
+  this.$node.css(styleSettings);
+};
