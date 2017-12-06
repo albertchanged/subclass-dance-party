@@ -1,7 +1,6 @@
 $(document).ready(function() {
   window.dancers = [];
-
-  $('.addSnoopDancerButton').on('click', function(event) {
+  $('.addBlinkyDancerButton').on('click', function(event) {
     /* This function sets up the click handlers for the create-dancer
      * buttons on dancefloor.html. You should only need to make one small change to it.
      * As long as the "data-dancer-maker-function-name" attribute of a
@@ -27,12 +26,31 @@ $(document).ready(function() {
       11111,
       Math.random() * 1000
     );
+    $('.dancerLines').append('<div class="blinkyDancerLine">4</div>');
+    for (var i = 0; i < 10; i++) {
+      $('.blinkyDancerLine').append(dancer.$node);
+    }
+    window.dancers.push(dancer);
+  });
+  $('.addSnoopDancerButton').on('click', function(event) {
+    var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
+
+    // get the maker function for the kind of dancer we're supposed to make
+    var dancerMakerFunction = window[dancerMakerFunctionName];
+
+    // make a dancer with a random position
+  
+    var dancer = new dancerMakerFunction(
+      80,
+      11111,
+      Math.random() * 1000
+    );
     $('.dancerLines').append('<div class="snoopDancerLine"></div>');
-      for (var i = 0; i < 10; i++) {
-    dancer.$node.append('<img class="snoop image" src="smallsnoop.gif">');
-    // dancer.$node.addClass(dancerMakerFunctionName);
-    $('.snoopDancerLine').append(dancer.$node);
-    $('.snoopDancerLine').addClass('snoopDancerRotate');
+    for (var i = 0; i < 10; i++) {
+      dancer.$node.append('<img class="snoop image" src="smallsnoop.gif">');
+
+      $('.snoopDancerLine').append(dancer.$node);
+      $('.snoopDancerLine').addClass('snoopDancerRotate');
     }
     window.dancers.push(dancer);
   });
@@ -47,39 +65,23 @@ $(document).ready(function() {
     // make a dancer with a random position
 
     var dancer = new dancerMakerFunction(
-      0,0,
+      0, 0,
       Math.random() * 1000
     );
-        // $(this).prop("disabled",true);
-    // dancer.$node.addClass(dancerMakerFunctionName);
     $('.dancerLines').append('<div class="psyDancerLine"></div>');
-      for (var i = 0; i < 8; i++) {
-        $('.psyDancerLine').append(dancer.$node);
-        $('.psyDancerLine').addClass('psyDancerRotate');
-        dancer.$node.append('<img class="image" src="slowpsy.gif">');
-      }
+    for (var i = 0; i < 8; i++) {
+      $('.psyDancerLine').append(dancer.$node);
+      $('.psyDancerLine').addClass('psyDancerRotate');
+      dancer.$node.append('<img class="image" src="slowpsy.gif">');
+    }
     window.dancers.push(dancer);
-    $(this).removeAttr("onclick");
-
+    $(this).removeAttr('onclick');
   });
   
    
   
 
   $('.addSquidwardDancerButton').on('click', function(event) {
-    /* This function sets up the click handlers for the create-dancer
-     * buttons on dancefloor.html. You should only need to make one small change to it.
-     * As long as the "data-dancer-maker-function-name" attribute of a
-     * class="addDancerButton" DOM node matches one of the names of the
-     * maker functions available in the global scope, clicking that node
-     * will call the function to make the dancer.
-     */
-
-    /* dancerMakerFunctionName is a string which must match
-     * one of the dancer maker functions available in global scope.
-     * A new object of the given type will be created and added
-     * to the stage.
-     */
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
 
     // get the maker function for the kind of dancer we're supposed to make
@@ -93,15 +95,38 @@ $(document).ready(function() {
       Math.random() * 1000
     );
     $('.dancerLines').append('<div class="squidwardDancerLine"></div>');
-    // $('.snoopDancerLine').hide();
     for (var i = 0; i < 5; i++) {
-    dancer.$node.append('<img class="image" src="squidward.gif">');
-    // dancer.$node.addClass(dancerMakerFunctionName);
-    $('.squidwardDancerLine').append(dancer.$node);
-    $('.squidwardDancerLine').addClass('squidwardDancerRotate');
-
-  }
+      dancer.$node.append('<img class="image" src="squidward.gif">');
+      $('.squidwardDancerLine').append(dancer.$node);
+      $('.squidwardDancerLine').addClass('squidwardDancerRotate');
+    }
     window.dancers.push(dancer);
+  });
+
+  $('.addBreakDancerButton').on('click', function(event) {
+    var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
+
+    // get the maker function for the kind of dancer we're supposed to make
+    var dancerMakerFunction = window[dancerMakerFunctionName];
+
+    // make a dancer with a random position
+
+    var dancer = new dancerMakerFunction(
+      $('body').height() * Math.random() + 1000,
+      $('body').width() * Math.random(),
+      Math.random() * 1000
+    );
+    $('.dancerLines').append('<div class="breakDancerLine"></div>');
+    dancer.$node.append('<img class="bboy" src="bboy.png">');
+
+    $('.breakDancerLine').append(dancer.$node);
+    $('.breakDancerLine').addClass('breakDancerRotate');
+
+    window.dancers.push(dancer);
+  });
+
+  $('.bboy').on('click', function() {
+    $(this).hide();
   });
 
   $('.lineUp').on('click', function(event) {
@@ -110,13 +135,14 @@ $(document).ready(function() {
       $('.squidwardDancerLine').removeClass('squidwardDancerRotate');
       $('.psyDancerLine').removeClass('psyDancerRotate');
       $('.snoopDancerLine').removeClass('snoopDancerRotate');
-      dancer.setPosition(1000,200);
+      $('.breakDancerLine').css('margin-left', '37%');
+      $('.breakDancerLine').css('margin-top', '-350px');
     });
   });
 
   $('.image').click(function() {
-  window.dancers.forEach(function(dancer) {
-    $(this).animate({height:'600px',width:'300px'});
+    window.dancers.forEach(function(dancer) {
+      $(this).animate({height: '600px', width: '300px'});
     });
   });
 });

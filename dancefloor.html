@@ -10,31 +10,21 @@
     <script src="src/snoopDancer.js"></script>
     <script src="src/psyDancer.js"></script>
     <script src="src/squidwardDancer.js"></script>
-    
-
+    <script src="src/breakDancer.js"></script>
   </head>
   <body>
     <div class="topbar">
       <span class="title"><strong>Dance Party</strong></span>
       <a href="#" class="addSnoopDancerButton" data-dancer-maker-function-name="SnoopDancer"><strong>Snoop</strong></a>
       <a href="#" class="addPsyDancerButton" data-dancer-maker-function-name="PsyDancer" onclick="disable"><strong>Psy</strong></a>
-      <!-- <a href="#" class="addPsyDancerButton" data-dancer-maker-function-name="BlinkyDancer"><strong>Blinky Dancers</strong></a>  -->
-      <a href="#" class="addSquidwardDancerButton" data-dancer-maker-function-name="SquidwardDancer"><strong>Squidward</strong></a>
-      <a href="#" class="lineUp" data-dancer-maker-function-name="lineUp"><strong>Line Up</strong></a>
-    </div>
-    
-     <div class="dancerLines"></div> 
-    <!-- <div class="psyDancerLine"></div>
-    <div class="snoopDancerLine"></div>
-    <div class="squidwardDancerLine squidwardDancerRotate"></div>
-     -->
-   <!--  prob: position on page 
-    reason: divs hard coded on html file
-    sol: dynamially create the div on the page on click,  set location of div relative to point have dncer maker function adjust position of  div. currently adjusts location within randomly placed div -->
 
-   
+      <a href="#" class="addSquidwardDancerButton" data-dancer-maker-function-name="SquidwardDancer"><strong>Squidward</strong></a>
+      <a href="#" class="addBreakDancerButton" data-dancer-maker-function-name="BreakDancer"><strong>Breakdancer</strong></a>
+      <a href="#" class="lineUp" data-dancer-maker-function-name="lineUp"><strong>Line Up</strong></a>
+      <a href="#" class="addBlinkyDancerButton" data-dancer-maker-function-name="BlinkyDancer"><strong>Blinky</strong></a> 
+      </div>
+    <div class="dancerLines"></div> 
     <script src="src/init.js">
-      // $('body').css('background', 'url(laser.jpg) no-repeat');
     </script>
     <audio controls autoplay>
       <source src="drop it like its hot.mp3" type="audio/mpeg">
